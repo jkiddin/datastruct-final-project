@@ -1,12 +1,30 @@
-#include <iostream>
+#include "algorithm.h"
 
 using namespace std;
 
 int main() {
+    int n = 100;
+    int *randomArray = new int[n];
+
+    //generates a random array of size n with numbers from 0-99. range represented by mod 100.
+    for (int i = 0; i < n; i++) {
+        randomArray[i] = rand()%100;
+    }
+
+    bubbleSort(randomArray, n);
+    printArray(randomArray, n);
+
+    delete[] randomArray;
+
+    cout << "\nThe program ran. Congrats or smth" << endl;
+    return 0;
+}
+
 /*
 You need to implement insertion sort, selection sort, bubble sort, merge sort, quicksort, heapsort (increasing order) algorithms and measure the performance of these algorithms in terms of number of steps and CPU running time.  
 Task I: 
 Implement insertion sort, selection sort, bubble sort, merge sort, quicksort and heapsort to sort the numbers in the increasing order. Write the program to evaluate the performance of your algorithms in two ways: (1) CPU time; (2) total no. of steps.
+
 Input (not enter by the user) include:  
 1)	the number of integers to be sorted, n.
 2)	generating three instances as follows:
@@ -33,7 +51,3 @@ What to turn in:
 (2) Report the number of steps and the CPU running time in a table 
 (3) Plot the running time of the algorithm results
 */
-
-
-    return 0;
-}
