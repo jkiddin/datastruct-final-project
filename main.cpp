@@ -11,9 +11,45 @@ int main() {
         randomArray[i] = rand()%100;
     }
 
-    bubbleSort(randomArray, n);
-    printArray(randomArray, n);
+    cout << "What sorting algorithm would you like?" << endl;
+    cout << "1. Insertion Sort. \n2. Selection Sort. \n3. Bubble Sort. \n4. Merge Sort. \n5. Quick Sort. \n6. Heap Sort." << endl;
+    cout << '\n';
 
+    int choice;
+    cin >> choice;
+    cout << '\n';
+
+    cout << "The random array currently holds: " << endl;
+    printArray(randomArray, n);
+    cout << '\n';
+
+    if (choice == 1) {
+        //insertionSort(randomArray, n);
+    }
+    else if (choice == 2) {
+        //selectionSort(randomArray, n);
+    }
+    else if (choice == 3) {
+        bubbleSort(randomArray, n);
+    }
+    else if (choice == 4) {
+        mergeSort(randomArray, 0, n - 1);
+    }
+    else if (choice == 5) {
+        //quickSort(randomArray, n);
+    }
+    else if (choice == 6) {
+        //heapSort(randomArray, n);
+    }
+    else {
+        cout << "Not a valid choice. Program exiting. " << endl;
+        return 0;
+    }
+
+    cout << "\nThe array currently holds: " << endl;
+    printArray(randomArray, n);
+    cout << '\n';
+    
     delete[] randomArray;
 
     cout << "\nThe program ran. Congrats or smth" << endl;
