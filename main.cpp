@@ -5,10 +5,29 @@ using namespace std;
 int main() {
     int n = 100;
     int *randomArray = new int[n];
+    int *ascArray = new int[n];
+    int *desArray = new int[n];
 
-    //generates a random array of size n with numbers from 0-99. range represented by mod 100.
+    //generates the arrays
+    int randIndex = 0;
+    int temp = 0;
+    int j = 0;
+    int k = 0;
+
+    for (int i = 1; i < n+1; i++) {
+        ascArray[j] = i;
+        randomArray[j] = i;
+        j++;
+    }
+    for (int i = n; i >= 0; i--) {
+        desArray[k] = i;
+        k++;
+    }
     for (int i = 0; i < n; i++) {
-        randomArray[i] = rand()%100;
+        randIndex = rand() % n;
+        temp = randomArray[i];
+        randomArray[i] = randomArray[randIndex];
+        randomArray[randIndex] = temp;
     }
 
     cout << "What sorting algorithm would you like?" << endl;
@@ -19,38 +38,39 @@ int main() {
     cin >> choice;
     cout << '\n';
 
-    cout << "The random array currently holds: " << endl;
-    printArray(randomArray, n);
-    cout << '\n';
+    printArrays(ascArray, desArray, randomArray, n);
 
+    cout << "\nSorting..." << endl;
     if (choice == 1) {
-        //insertionSort(randomArray, n);
+        //insertionSort
     }
     else if (choice == 2) {
-        //selectionSort(randomArray, n);
+        //selectionSort
     }
     else if (choice == 3) {
-        bubbleSort(randomArray, n);
+        bubbleSort(ascArray, n);
+        bubbleSort(desArray, n);
+        bubbleSort(randomArray, n); 
     }
     else if (choice == 4) {
+        mergeSort(ascArray, 0, n - 1);
+        mergeSort(desArray, 0, n - 1);
         mergeSort(randomArray, 0, n - 1);
     }
     else if (choice == 5) {
-        //quickSort(randomArray, n);
+        //quickSort
     }
     else if (choice == 6) {
-        //heapSort(randomArray, n);
+        //heapSort
     }
     else {
         cout << "Not a valid choice. Program exiting. " << endl;
         return 0;
     }
-
-    cout << "\nThe array currently holds: " << endl;
-    printArray(randomArray, n);
-    cout << '\n';
     
-    delete[] randomArray;
+    printArrays(ascArray, desArray, randomArray, n);
+
+    delete[] ascArray, desArray, randomArray;
 
     cout << "\nThe program ran. Congrats or smth" << endl;
     return 0;
