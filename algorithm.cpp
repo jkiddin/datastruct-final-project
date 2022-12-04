@@ -2,9 +2,22 @@
 
 using namespace std;
 
-void printArray(int arr[], int size) {
-    for (int i = 0; i < size; i++)
-        cout <<" "<< arr[i];
+void printArrays(int asc[], int des[], int ran[], int size) {
+    cout << "\nThe ascending array currently holds: " << endl;
+    for (int i = 0; i < size; i++) {
+        cout <<" "<< asc[i];
+    }
+    cout << '\n';
+    cout << "\nThe descending array currently holds: " << endl;
+    for (int i = 0; i < size; i++) {
+        cout <<" "<< des[i];
+    }
+    cout << '\n';
+    cout << "\nThe random array currently holds: " << endl;
+    for (int i = 0; i < size; i++) {
+        cout <<" "<< ran[i];
+    }
+    cout << '\n';
 }
 
 void bubbleSort(int arr[], int n) {
@@ -74,8 +87,7 @@ void merge(int arr[], int left, int mid, int right) {
     delete[] rightArray;
 }
  
-void mergeSort(int arr[], int begin, int end)
-{
+void mergeSort(int arr[], int begin, int end) {
     if (begin >= end) {
         return;
     }
