@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <time.h>
+#include <chrono>
+#include <vector>
 
 void printArrays(int asc[], int des[], int ran[], int size);
 

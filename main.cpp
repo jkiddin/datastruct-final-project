@@ -1,6 +1,7 @@
 #include "algorithm.h"
 
 using namespace std;
+using namespace std::chrono;
 
 void initialize(int randomArray[], int ascArray[], int desArray[]);
 void resetNprint(int randomArray[], int ascArray[], int desArray[]);
@@ -10,48 +11,61 @@ int n;
 int counter = 0;
 
 int main() {
-    while (counter != 1) { //replace with 8 later.
+    while (counter != 2) { //replace with 8 later.
         nSetup();
         int* randomArray = new int[n];
         int* ascArray = new int[n];
         int* desArray = new int[n];
 
-        resetNprint(ascArray, desArray, randomArray);
+        initialize(randomArray, ascArray, desArray);
 
-        //insertionSort
-
-        //resetNprint(ascArray, desArray, randomArray);
-
-        //selectionSort
-
-        //resetNprint(ascArray, desArray, randomArray);
-
+        auto start = high_resolution_clock::now();
         bubbleSort(ascArray, n);
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<microseconds>(stop - start);
+        
+        cout << "Time taken by Bubble Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+
+        start = high_resolution_clock::now();
         bubbleSort(desArray, n);
+        stop = high_resolution_clock::now();
+        duration = duration_cast<microseconds>(stop - start);
+
+        cout << "Time taken by Bubble Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+
+        start = high_resolution_clock::now();
         bubbleSort(randomArray, n);
+        stop = high_resolution_clock::now();
+        duration = duration_cast<microseconds>(stop - start);
 
-        cout << "\n\tSorted with Bubble Sort: " << endl;
-        printArrays(ascArray, desArray, randomArray, n);
+        cout << "Time taken by Bubble Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
 
-        resetNprint(ascArray, desArray, randomArray);
+        cout << '\n';
+        initialize(randomArray, ascArray, desArray);
 
+        start = high_resolution_clock::now();
         mergeSort(ascArray, 0, n - 1);
+        stop = high_resolution_clock::now();
+        duration = duration_cast<microseconds>(stop - start);
+
+        cout << "Time taken by Merge Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+
+        start = high_resolution_clock::now();
         mergeSort(desArray, 0, n - 1);
+        stop = high_resolution_clock::now();
+        duration = duration_cast<microseconds>(stop - start);
+
+        cout << "Time taken by Merge Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+
+        start = high_resolution_clock::now();
         mergeSort(randomArray, 0, n - 1);
+        stop = high_resolution_clock::now();
+        duration = duration_cast<microseconds>(stop - start);
 
-        cout << "\n\tSorted with Merge Sort: " << endl;
-        printArrays(ascArray, desArray, randomArray, n);
-
-        //quickSort
-
-        //resetNprint(ascArray, desArray, randomArray);
-
-        //heapSort
-
-        //resetNprint(ascArray, desArray, randomArray);
+        cout << "Time taken by Merge Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
 
         delete[] ascArray, desArray, randomArray;
-        cout << "\n\t\tArrays deleted, end of main reached. Resetting..." << endl;
+        cout << "\n\t\tArrays deleted, end of main reached. Resetting...\n" << endl;
 
         counter++;
     }
@@ -115,6 +129,8 @@ void resetNprint(int randomArray[], int ascArray[], int desArray[]) {
     initialize(randomArray, ascArray, desArray);
     printArrays(ascArray, desArray, randomArray, n);
 }
+
+
 
 /*
 You need to implement insertion sort, selection sort, bubble sort, merge sort, quicksort, heapsort (increasing order) algorithms and measure the performance of these algorithms in terms of number of steps and CPU running time.
