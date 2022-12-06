@@ -4,13 +4,13 @@ using namespace std;
 using namespace std::chrono;
 
 void initialize(int randomArray[], int ascArray[], int desArray[]);
-void resetNprint(int randomArray[], int ascArray[], int desArray[]);
 void nSetup();
 
 int n;
 int counter = 0;
 
 //Works in XCode!
+//seperate parts 1 and 2
 
 int main() {
     while (counter != 4) { //replace with 8 later.
@@ -68,7 +68,7 @@ int main() {
 
         static_cast<void>(delete[] ascArray), static_cast<void>(desArray),
         static_cast<void>(randomArray);
-        //added for mac. will test on windows to ensure compatibility
+        //added for mac. will test on windows to ensure compatibility.
         cout << "\n\t\tArrays deleted, end of main reached. Resetting...\n" << endl;
 
         counter++;
@@ -129,25 +129,17 @@ void nSetup() {
     return;
 }
 
-void resetNprint(int randomArray[], int ascArray[], int desArray[]) {
-    cout << "\n\tResetting/Initializing arrays." << endl;
-    initialize(randomArray, ascArray, desArray);
-    printArrays(ascArray, desArray, randomArray, n);
-}
-
-
-
 /*
 You need to implement insertion sort, selection sort, bubble sort, merge sort, quicksort, heapsort (increasing order) algorithms and measure the performance of these algorithms in terms of number of steps and CPU running time.
 Task I:
 Implement insertion sort, selection sort, bubble sort, merge sort, quicksort and heapsort to sort the numbers in the increasing order. Write the program to evaluate the performance of your algorithms in two ways: (1) CPU time; (2) total no. of steps.
 
 Input (not enter by the user) include:
-1)	the number of integers to be sorted, n.
-2)	generating three instances as follows:
-a.	sorted input data set: 1, 2, 3, … n;
-b.	reversely sorted input data set: n, n-1, …, 3, 2,1;
-c.	random permutation of 1, 2, …, n (random permutation means that each number of 1, 2, …, n appears exactly once in the input data set but with random position. For example, if n=5, then you may have the random permutation 4, 1, 3, 5, 2).
+1)    the number of integers to be sorted, n.
+2)    generating three instances as follows:
+a.    sorted input data set: 1, 2, 3, … n;
+b.    reversely sorted input data set: n, n-1, …, 3, 2,1;
+c.    random permutation of 1, 2, …, n (random permutation means that each number of 1, 2, …, n appears exactly once in the input data set but with random position. For example, if n=5, then you may have the random permutation 4, 1, 3, 5, 2).
 
 Test your program and do the experiments as follows:
 Run the above three generated input data sets for each n (number of integers) = 100, 300, 500, 1000, 3000, 5000, 10000, 50000
@@ -163,6 +155,9 @@ What to turn in:
 Task II:
 For each algorithm, and for each n (number of integers) = 100, 300, 500, 1000, 3000, 5000, 10000, 50000 measure its average running time and average number of steps for 50 randomly generated instances.
 Note the input data should include 50 sets of n numbers with each number generated randomly in the range of [1, n]. Accumulated the total CPU time and the total number of steps for all 50 data sets, and then get the average CPU time and average total number of steps by dividing the total value by 50.
+ 
+ !*!*(can generate random data set into a file, load file)*!*!
+ 
 What to turn in:
 (1) Well documented source code in C++
 (2) Report the number of steps and the CPU running time in a table
@@ -255,3 +250,13 @@ What to turn in:
  Program successfully ran.
  Program ended with exit code: 0
  */
+
+
+//If needed to print arrays:
+/*
+ void resetNprint(int randomArray[], int ascArray[], int desArray[]) {
+ cout << "\n\tResetting/Initializing arrays." << endl;
+ initialize(randomArray, ascArray, desArray);
+ printArrays(ascArray, desArray, randomArray, n);
+}
+*/
