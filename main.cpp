@@ -13,7 +13,7 @@ int counter = 0;
 //Works in XCode!
 
 int main() {
-    while (counter != 2) { //replace with 8 later.
+    while (counter != 4) { //replace with 8 later.
         nSetup();
         int* randomArray = new int[n];
         int* ascArray = new int[n];
@@ -66,11 +66,14 @@ int main() {
 
         cout << "Time taken by Merge Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
 
-        delete[] ascArray, desArray, randomArray;
+        static_cast<void>(delete[] ascArray), static_cast<void>(desArray),
+        static_cast<void>(randomArray);
+        //added for mac. will test on windows to ensure compatibility
         cout << "\n\t\tArrays deleted, end of main reached. Resetting...\n" << endl;
 
         counter++;
     }
+    cout << "Program successfully ran. " << endl;
     return 0;
 }
 
@@ -167,43 +170,88 @@ What to turn in:
 */
 
 
+//Mac Output (Silicon M1)
 /*
-cout << "What sorting algorithm would you like?" << endl;
-cout << "1. Insertion Sort. \n2. Selection Sort. \n3. Bubble Sort. \n4. Merge Sort. \n5. Quick Sort. \n6. Heap Sort." << endl;
-cout << '\n';
+ Time taken by Bubble Sort for an ascending array with 100 values: 0 microseconds.
+ Time taken by Bubble Sort for a descending array with 100 values: 34 microseconds.
+ Time taken by Bubble Sort for a random array with 100 values: 43 microseconds.
 
-int choice;
-cin >> choice;
-cout << '\n';
+ Time taken by Merge Sort for an ascending array with 100 values: 14 microseconds.
+ Time taken by Merge Sort for a descending array with 100 values: 10 microseconds.
+ Time taken by Merge Sort for a random array with 100 values: 15 microseconds.
 
+         Arrays deleted, end of main reached. Resetting...
 
-printArrays(ascArray, desArray, randomArray, n);
+ Time taken by Bubble Sort for an ascending array with 300 values: 0 microseconds.
+ Time taken by Bubble Sort for a descending array with 300 values: 340 microseconds.
+ Time taken by Bubble Sort for a random array with 300 values: 296 microseconds.
 
-cout << "\nSorting..." << endl;
-if (choice == 1) {
-    //insertionSort
-}
-else if (choice == 2) {
-    //selectionSort
-}
-else if (choice == 3) {
-    bubbleSort(ascArray, n);
-    bubbleSort(desArray, n);
-    bubbleSort(randomArray, n);
-}
-else if (choice == 4) {
-    mergeSort(ascArray, 0, n - 1);
-    mergeSort(desArray, 0, n - 1);
-    mergeSort(randomArray, 0, n - 1);
-}
-else if (choice == 5) {
-    //quickSort
-}
-else if (choice == 6) {
-    //heapSort
-}
-else {
-    cout << "Not a valid choice. Program exiting. " << endl;
-    return 0;
-}
-*/
+ Time taken by Merge Sort for an ascending array with 300 values: 34 microseconds.
+ Time taken by Merge Sort for a descending array with 300 values: 33 microseconds.
+ Time taken by Merge Sort for a random array with 300 values: 50 microseconds.
+
+         Arrays deleted, end of main reached. Resetting...
+
+ Time taken by Bubble Sort for an ascending array with 500 values: 1 microseconds.
+ Time taken by Bubble Sort for a descending array with 500 values: 836 microseconds.
+ Time taken by Bubble Sort for a random array with 500 values: 781 microseconds.
+
+ Time taken by Merge Sort for an ascending array with 500 values: 54 microseconds.
+ Time taken by Merge Sort for a descending array with 500 values: 53 microseconds.
+ Time taken by Merge Sort for a random array with 500 values: 85 microseconds.
+
+         Arrays deleted, end of main reached. Resetting...
+
+ Time taken by Bubble Sort for an ascending array with 1000 values: 2 microseconds.
+ Time taken by Bubble Sort for a descending array with 1000 values: 3390 microseconds.
+ Time taken by Bubble Sort for a random array with 1000 values: 3119 microseconds.
+
+ Time taken by Merge Sort for an ascending array with 1000 values: 164 microseconds.
+ Time taken by Merge Sort for a descending array with 1000 values: 158 microseconds.
+ Time taken by Merge Sort for a random array with 1000 values: 198 microseconds.
+
+         Arrays deleted, end of main reached. Resetting...
+
+ Time taken by Bubble Sort for an ascending array with 3000 values: 6 microseconds.
+ Time taken by Bubble Sort for a descending array with 3000 values: 30134 microseconds.
+ Time taken by Bubble Sort for a random array with 3000 values: 31947 microseconds.
+
+ Time taken by Merge Sort for an ascending array with 3000 values: 427 microseconds.
+ Time taken by Merge Sort for a descending array with 3000 values: 406 microseconds.
+ Time taken by Merge Sort for a random array with 3000 values: 992 microseconds.
+
+         Arrays deleted, end of main reached. Resetting...
+
+ Time taken by Bubble Sort for an ascending array with 5000 values: 10 microseconds.
+ Time taken by Bubble Sort for a descending array with 5000 values: 85210 microseconds.
+ Time taken by Bubble Sort for a random array with 5000 values: 96394 microseconds.
+
+ Time taken by Merge Sort for an ascending array with 5000 values: 632 microseconds.
+ Time taken by Merge Sort for a descending array with 5000 values: 621 microseconds.
+ Time taken by Merge Sort for a random array with 5000 values: 1026 microseconds.
+
+         Arrays deleted, end of main reached. Resetting...
+
+ Time taken by Bubble Sort for an ascending array with 10000 values: 20 microseconds.
+ Time taken by Bubble Sort for a descending array with 10000 values: 334580 microseconds.
+ Time taken by Bubble Sort for a random array with 10000 values: 391759 microseconds.
+
+ Time taken by Merge Sort for an ascending array with 10000 values: 1297 microseconds.
+ Time taken by Merge Sort for a descending array with 10000 values: 1227 microseconds.
+ Time taken by Merge Sort for a random array with 10000 values: 2148 microseconds.
+
+         Arrays deleted, end of main reached. Resetting...
+
+ Time taken by Bubble Sort for an ascending array with 50000 values: 102 microseconds.
+ Time taken by Bubble Sort for a descending array with 50000 values: 8364460 microseconds.
+ Time taken by Bubble Sort for a random array with 50000 values: 10638026 microseconds.
+
+ Time taken by Merge Sort for an ascending array with 50000 values: 6769 microseconds.
+ Time taken by Merge Sort for a descending array with 50000 values: 6595 microseconds.
+ Time taken by Merge Sort for a random array with 50000 values: 11992 microseconds.
+
+         Arrays deleted, end of main reached. Resetting...
+
+ Program successfully ran.
+ Program ended with exit code: 0
+ */
