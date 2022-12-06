@@ -10,6 +10,8 @@ void nSetup();
 int n;
 int counter = 0;
 
+//Works in XCode!
+
 int main() {
     while (counter != 2) { //replace with 8 later.
         nSetup();
