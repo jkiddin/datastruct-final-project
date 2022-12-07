@@ -69,6 +69,8 @@ int main() {
         static_cast<void>(delete[] ascArray), static_cast<void>(desArray),
         static_cast<void>(randomArray);
         //added for mac. will test on windows to ensure compatibility.
+        // if u run on windows and it doesn't work, replace with
+        // delete[] ascArray, desArray, randomArray;
         cout << "\n\t\tArrays deleted, end of main reached. Resetting...\n" << endl;
 
         counter++;
