@@ -21,56 +21,71 @@ int main() {
 
         initialize(randomArray, ascArray, desArray);
 
+        int bubbleSteps;
+        
+        cout << "Bubble Sort: " << endl;
+        
         auto start = high_resolution_clock::now();
-        bubbleSort(ascArray, n);
+        bubbleSort(ascArray, n, bubbleSteps);
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(stop - start);
         
         cout << "Time taken by Bubble Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "Steps taken by Bubble Sort for an ascending array with " << n << " values: " << bubbleSteps << " steps. " << endl;
 
         start = high_resolution_clock::now();
-        bubbleSort(desArray, n);
+        bubbleSort(desArray, n, bubbleSteps);
         stop = high_resolution_clock::now();
         duration = duration_cast<microseconds>(stop - start);
 
-        cout << "Time taken by Bubble Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "\nTime taken by Bubble Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "Steps taken by Bubble Sort for an descending array with " << n << " values: " << bubbleSteps << " steps. " << endl;
 
         start = high_resolution_clock::now();
-        bubbleSort(randomArray, n);
+        bubbleSort(randomArray, n, bubbleSteps);
         stop = high_resolution_clock::now();
         duration = duration_cast<microseconds>(stop - start);
 
-        cout << "Time taken by Bubble Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "\nTime taken by Bubble Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "Steps taken by Bubble Sort for an random array with " << n << " values: " << bubbleSteps << " steps. " << endl;
 
         cout << '\n';
         initialize(randomArray, ascArray, desArray);
 
+        int mergeSteps;
+        
+        cout << "Merge Sort: " << endl;
+        
         start = high_resolution_clock::now();
-        mergeSort(ascArray, 0, n - 1);
+        mergeSort(ascArray, 0, n - 1, mergeSteps);
         stop = high_resolution_clock::now();
         duration = duration_cast<microseconds>(stop - start);
 
         cout << "Time taken by Merge Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "Steps taken by Merge Sort for an ascending array with " << n << " values: " << mergeSteps << " steps. " << endl;
 
         start = high_resolution_clock::now();
-        mergeSort(desArray, 0, n - 1);
+        mergeSort(desArray, 0, n - 1, mergeSteps);
         stop = high_resolution_clock::now();
         duration = duration_cast<microseconds>(stop - start);
 
-        cout << "Time taken by Merge Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "\nTime taken by Merge Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "Steps taken by Merge Sort for a descending array with " << n << " values: " << mergeSteps << " steps. " << endl;
 
         start = high_resolution_clock::now();
-        mergeSort(randomArray, 0, n - 1);
+        mergeSort(randomArray, 0, n - 1, mergeSteps);
         stop = high_resolution_clock::now();
         duration = duration_cast<microseconds>(stop - start);
 
-        cout << "Time taken by Merge Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "\nTime taken by Merge Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+        cout << "Steps taken by Merge Sort for a random array with " << n << " values: " << mergeSteps << " steps. " << endl;
 
         static_cast<void>(delete[] ascArray), static_cast<void>(desArray),
         static_cast<void>(randomArray);
         //added for mac. will test on windows to ensure compatibility.
         // if u run on windows and it doesn't work, replace with
         // delete[] ascArray, desArray, randomArray;
+        
         cout << "\n\t\tArrays deleted, end of main reached. Resetting...\n" << endl;
 
         counter++;
