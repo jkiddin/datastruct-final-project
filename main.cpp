@@ -1,4 +1,4 @@
-#include "algorithm.h"
+#include "josh.h"
 #include "Algorithm2.h"
 
 using namespace std;
@@ -171,6 +171,7 @@ int main() {
     }
     else if (choice == 2) {
         //part 2
+
     }
     else {
         cerr << "Not a valid response. Exiting..." << endl;

@@ -4,6 +4,7 @@
 #include <time.h>
 #include <chrono>
 #include <vector>
+#include <fstream>
 
 void printArrays(int asc[], int des[], int ran[], int size);
 
