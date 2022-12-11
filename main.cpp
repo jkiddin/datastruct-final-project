@@ -18,7 +18,7 @@ int main() {
     cout << "Task 1 or 2: ";
     cin >> choice;
     if (choice == 1) {
-        while (counter != 4) { //replace with 8 later.
+        while (counter != 8) { //replace with 8 later.
             nSetup();
             int* randomArray = new int[n];
             int* ascArray = new int[n];
@@ -26,7 +26,7 @@ int main() {
 
             initialize(randomArray, ascArray, desArray);
 
-            int bubbleSteps;
+            long long int bubbleSteps;
 
             cout << "Bubble Sort: " << endl;
 
@@ -57,7 +57,7 @@ int main() {
             cout << '\n';
             initialize(randomArray, ascArray, desArray);
 
-            int mergeSteps;
+            long long int mergeSteps;
 
             cout << "Merge Sort: " << endl;
 
