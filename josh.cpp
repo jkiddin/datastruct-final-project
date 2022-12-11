@@ -1,5 +1,4 @@
-#include "Algorithm.h"
-
+#include "josh.h"
 
 using namespace std;
 
@@ -21,7 +20,7 @@ void printArrays(int asc[], int des[], int ran[], int size) {
     cout << '\n';
 }
 
-void bubbleSort(int arr[], int n, int& c) {
+void bubbleSort(int arr[], int n, long long int& c) {
     c = 0;
     int i, j;
     bool swapped;
@@ -48,7 +47,7 @@ Time Complexity: O(N^2)
 Auxiliary Space: O(1)
 */
 
-void merge(int arr[], int left, int mid, int right, int& c) {
+void merge(int arr[], int left, int mid, int right, long long int& c) {
     int sub1 = mid - left + 1;
     int sub2 = right - mid;
 
@@ -104,7 +103,7 @@ void merge(int arr[], int left, int mid, int right, int& c) {
     c = c + 2;
 }
 
-void mergeSort(int arr[], int begin, int end, int& pass) {
+void mergeSort(int arr[], int begin, int end, long long int& pass) {
     if (begin >= end) {
         return;
     }

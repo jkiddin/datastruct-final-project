@@ -1,4 +1,4 @@
-#include "algorithm.h"
+#include "josh.h"
 #include "Algorithm2.h"
 
 using namespace std;
@@ -26,7 +26,7 @@ int main() {
 
             initialize(randomArray, ascArray, desArray);
 
-            int bubbleSteps;
+            long long int bubbleSteps;
 
             cout << "Bubble Sort: " << endl;
 
@@ -57,7 +57,7 @@ int main() {
             cout << '\n';
             initialize(randomArray, ascArray, desArray);
 
-            int mergeSteps;
+            long long int mergeSteps;
 
             cout << "Merge Sort: " << endl;
 
@@ -171,6 +171,7 @@ int main() {
     }
     else if (choice == 2) {
         //part 2
+
     }
     else {
         cerr << "Not a valid response. Exiting..." << endl;
@@ -238,9 +239,9 @@ Implement insertion sort, selection sort, bubble sort, merge sort, quicksort and
 Input (not enter by the user) include:
 1)    the number of integers to be sorted, n.
 2)    generating three instances as follows:
-a.    sorted input data set: 1, 2, 3, … n;
-b.    reversely sorted input data set: n, n-1, …, 3, 2,1;
-c.    random permutation of 1, 2, …, n (random permutation means that each number of 1, 2, …, n appears exactly once in the input data set but with random position. For example, if n=5, then you may have the random permutation 4, 1, 3, 5, 2).
+a.    sorted input data set: 1, 2, 3, Â… n;
+b.    reversely sorted input data set: n, n-1, Â…, 3, 2,1;
+c.    random permutation of 1, 2, Â…, n (random permutation means that each number of 1, 2, Â…, n appears exactly once in the input data set but with random position. For example, if n=5, then you may have the random permutation 4, 1, 3, 5, 2).
 Test your program and do the experiments as follows:
 Run the above three generated input data sets for each n (number of integers) = 100, 300, 500, 1000, 3000, 5000, 10000, 50000
 Note:
