@@ -28,18 +28,18 @@ void bubbleSort(int arr[], int n, int& c) {
     c = c + 3;
     for (i = 0; i < n - 1; i++) {
         swapped = false;
-        c++;
+        c = c + 2;
         for (j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr[j], arr[j + 1]);
                 swapped = true;
-                c = c + 2;
+                c = c + 5;
             }
         }
-        c++;
         if (swapped == false) {
             break;
         }
+        c++;
     }
 }
 
@@ -59,11 +59,11 @@ void merge(int arr[], int left, int mid, int right, int& c) {
 
     for (int i = 0; i < sub1; i++) {
         leftArray[i] = arr[left + i];
-        c++;
+        c = c + 3;
     }
     for (int j = 0; j < sub2; j++) {
         rightArray[j] = arr[mid + 1 + j];
-        c++;
+        c = c + 3;
     }
 
     int indexS1 = 0;
@@ -84,20 +84,20 @@ void merge(int arr[], int left, int mid, int right, int& c) {
             c = c + 3;
         }
         indexArr++;
-        c++;
+        c = c + 2;
     }
 
     while (indexS1 < sub1) {
         arr[indexArr] = leftArray[indexS1];
         indexS1++;
         indexArr++;
-        c = c + 3;
+        c = c + 4;
     }
     while (indexS2 < sub2) {
         arr[indexArr] = rightArray[indexS2];
         indexS2++;
         indexArr++;
-        c = c + 3;
+        c = c + 4;
     }
     delete[] leftArray;
     delete[] rightArray;
