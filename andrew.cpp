@@ -6,13 +6,12 @@ using namespace std;
 // Andrew's Part
 
 void BuildHeap(int Array[], int size, long long int& steps) {
-
     steps += 4; // initializing i (3 steps) and false comparison i >= 0
 
     // Left Child: 2i + 1, Right Child: 2i+2
     for (int i = size / 2 - 1; i >= 0; i--) {
         steps += 3;
-        // comparing i with 0, decrementing i, and function call
+        //comparing i with 0, decrementing i, and function call
         Heapify(Array, i, size, steps);
     }
 }
@@ -51,7 +50,6 @@ void Heapify(int Array[], int i, int size, long long int& steps) {
 }
 
 void HeapSort(int Array[], int size, long long int& steps) {
-
     int temp;
 
     steps += 2; // initialization + function call
@@ -73,7 +71,6 @@ void HeapSort(int Array[], int size, long long int& steps) {
 
 
 int LomutoPartition(int Array[], int begin, int end, long long int& steps) {
-
     steps += 4; // intializations of three variables
 
     int pivot = Array[begin];
@@ -104,7 +101,6 @@ int LomutoPartition(int Array[], int begin, int end, long long int& steps) {
 }
 
 void QuickSort(int Array[], int begin, int end, long long int& steps) {
-
     steps += 1; // comparison
 
     if (begin < end) {

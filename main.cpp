@@ -16,6 +16,7 @@ int main() {
     int choice;
     cout << "Task 1 or 2: ";
     cin >> choice;
+    cout << '\n';
     if (choice == 1) {
         while (counter != 8) { //counter != 8 coinsides each n variable. 100 is 0, 300 is 1, ... 50000 is 7.
             nSetup(); //initializes the correct n value.
@@ -25,7 +26,7 @@ int main() {
 
             initialize(randomArray, ascArray, desArray); //sets the arrays to their correct values.
 
-            long long int bubbleSteps; //step counter for Bubble Sort.
+            long long int bubbleSteps = 0; //step counter for Bubble Sort.
 
             cout << "Bubble Sort: " << endl;
 
@@ -37,6 +38,8 @@ int main() {
             cout << "Time taken by Bubble Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Bubble Sort for an ascending array with " << n << " values: " << bubbleSteps << " steps. " << endl;
 
+            bubbleSteps = 0;
+
             start = high_resolution_clock::now(); //repeat steps for descending array and random array.
             bubbleSort(desArray, n, bubbleSteps);
             stop = high_resolution_clock::now();
@@ -44,6 +47,8 @@ int main() {
 
             cout << "\nTime taken by Bubble Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Bubble Sort for an descending array with " << n << " values: " << bubbleSteps << " steps. " << endl;
+
+            bubbleSteps = 0;
 
             start = high_resolution_clock::now();
             bubbleSort(randomArray, n, bubbleSteps);
@@ -56,7 +61,7 @@ int main() {
             cout << '\n';
             initialize(randomArray, ascArray, desArray);
 
-            long long int mergeSteps; //step counter for Merge Sort.
+            long long int mergeSteps = 0; //step counter for Merge Sort.
 
             cout << "Merge Sort: " << endl;
 
@@ -68,6 +73,8 @@ int main() {
             cout << "Time taken by Merge Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Merge Sort for an ascending array with " << n << " values: " << mergeSteps << " steps. " << endl;
 
+            mergeSteps = 0;
+
             start = high_resolution_clock::now();
             mergeSort(desArray, 0, n - 1, mergeSteps);
             stop = high_resolution_clock::now();
@@ -75,6 +82,8 @@ int main() {
 
             cout << "\nTime taken by Merge Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Merge Sort for a descending array with " << n << " values: " << mergeSteps << " steps. " << endl;
+
+            mergeSteps = 0;
 
             start = high_resolution_clock::now();
             mergeSort(randomArray, 0, n - 1, mergeSteps);
@@ -108,7 +117,7 @@ int main() {
             stop = high_resolution_clock::now();
             duration = duration_cast<microseconds>(stop - start);
 
-            cout << "\nTime taken by HeapSort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+            cout << "\nTime taken by Heap Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Heap Sort for an descending array with " << n << " values: " << heapSteps << " steps. " << endl;
 
             start = high_resolution_clock::now();
@@ -178,11 +187,9 @@ int main() {
             int* randomArray = new int[n];
 
             for (int i = 0; i < 4; i++) { // change to 6 later and edit switch - represents algos
-                try {
-                    inData.open(filename);
-                }
-                catch (exception e) {
-                    cerr << "Unable to open file." << endl;
+                inData.open(filename);
+                if (!inData.is_open()) {
+                    cerr << "File " << filename << " is not open. " << endl;
                     return 1;
                 }
 
@@ -247,6 +254,7 @@ int main() {
 
                 cout << endl << endl;
             }
+            delete[] randomArray;
             counter++;
         }
         cout << "Program successfully ran." << endl;
@@ -344,341 +352,5 @@ What to turn in:
 */
 
 /* Windows 10, Ryzen 5 3600, 32 GB RAM 3600 mHz.
-Bubble Sort:
-Time taken by Bubble Sort for an ascending array with 100 values: 1 microseconds.
-Steps taken by Bubble Sort for an ascending array with 100 values: 5 steps.
-
-Time taken by Bubble Sort for a descending array with 100 values: 110 microseconds.
-Steps taken by Bubble Sort for an descending array with 100 values: 25050 steps.
-
-Time taken by Bubble Sort for a random array with 100 values: 64 microseconds.
-Steps taken by Bubble Sort for an random array with 100 values: 11438 steps.
-
-Merge Sort:
-Time taken by Merge Sort for an ascending array with 100 values: 57 microseconds.
-Steps taken by Merge Sort for an ascending array with 100 values: 1584 steps.
-
-Time taken by Merge Sort for a descending array with 100 values: 53 microseconds.
-Steps taken by Merge Sort for a descending array with 100 values: 1582 steps.
-
-Time taken by Merge Sort for a random array with 100 values: 55 microseconds.
-Steps taken by Merge Sort for a random array with 100 values: 1671 steps.
-
-Heap Sort:
-Time taken by Heap Sort for an ascending array with 100 values: 9 microseconds.
-Steps taken by Heap Sort for an ascending array with 100 values: 12689 steps.
-
-Time taken by HeapSort for a descending array with 100 values: 8 microseconds.
-Steps taken by Heap Sort for an descending array with 100 values: 23229 steps.
-
-Time taken by Heap Sort for a random array with 100 values: 23 microseconds.
-Steps taken by Heap Sort for an random array with 100 values: 35054 steps.
-
-Quick Sort:
-Time taken by Quick Sort for an ascending array with 100 values: 20 microseconds.
-Steps taken by Quick Sort for an ascending array with 100 values: 16534 steps.
-
-Time taken by Quick Sort for a descending array with 100 values: 18 microseconds.
-Steps taken by Quick Sort for a descending array with 100 values: 43068 steps.
-
-Time taken by Quick Sort for a random array with 100 values: 6 microseconds.
-Steps taken by Quick Sort for a random array with 100 values: 47917 steps.
-
-                Arrays deleted, end of main reached. Resetting...
-
-Bubble Sort:
-Time taken by Bubble Sort for an ascending array with 300 values: 1 microseconds.
-Steps taken by Bubble Sort for an ascending array with 300 values: 5 steps.
-
-Time taken by Bubble Sort for a descending array with 300 values: 996 microseconds.
-Steps taken by Bubble Sort for an descending array with 300 values: 225150 steps.
-
-Time taken by Bubble Sort for a random array with 300 values: 605 microseconds.
-Steps taken by Bubble Sort for an random array with 300 values: 106945 steps.
-
-Merge Sort:
-Time taken by Merge Sort for an ascending array with 300 values: 163 microseconds.
-Steps taken by Merge Sort for an ascending array with 300 values: 4576 steps.
-
-Time taken by Merge Sort for a descending array with 300 values: 157 microseconds.
-Steps taken by Merge Sort for a descending array with 300 values: 4573 steps.
-
-Time taken by Merge Sort for a random array with 300 values: 196 microseconds.
-Steps taken by Merge Sort for a random array with 300 values: 4855 steps.
-
-Heap Sort:
-Time taken by Heap Sort for an ascending array with 300 values: 33 microseconds.
-Steps taken by Heap Sort for an ascending array with 300 values: 48287 steps.
-
-Time taken by HeapSort for a descending array with 300 values: 30 microseconds.
-Steps taken by Heap Sort for an descending array with 300 values: 89393 steps.
-
-Time taken by Heap Sort for a random array with 300 values: 34 microseconds.
-Steps taken by Heap Sort for an random array with 300 values: 134278 steps.
-
-Quick Sort:
-Time taken by Quick Sort for an ascending array with 300 values: 122 microseconds.
-Steps taken by Quick Sort for an ascending array with 300 values: 139634 steps.
-
-Time taken by Quick Sort for a descending array with 300 values: 149 microseconds.
-Steps taken by Quick Sort for a descending array with 300 values: 369268 steps.
-
-Time taken by Quick Sort for a random array with 300 values: 20 microseconds.
-Steps taken by Quick Sort for a random array with 300 values: 386336 steps.
-
-                Arrays deleted, end of main reached. Resetting...
-
-Bubble Sort:
-Time taken by Bubble Sort for an ascending array with 500 values: 1 microseconds.
-Steps taken by Bubble Sort for an ascending array with 500 values: 5 steps.
-
-Time taken by Bubble Sort for a descending array with 500 values: 2988 microseconds.
-Steps taken by Bubble Sort for an descending array with 500 values: 625250 steps.
-
-Time taken by Bubble Sort for a random array with 500 values: 1737 microseconds.
-Steps taken by Bubble Sort for an random array with 500 values: 300739 steps.
-
-Merge Sort:
-Time taken by Merge Sort for an ascending array with 500 values: 274 microseconds.
-Steps taken by Merge Sort for an ascending array with 500 values: 7591 steps.
-
-Time taken by Merge Sort for a descending array with 500 values: 262 microseconds.
-Steps taken by Merge Sort for a descending array with 500 values: 7586 steps.
-
-Time taken by Merge Sort for a random array with 500 values: 250 microseconds.
-Steps taken by Merge Sort for a random array with 500 values: 8067 steps.
-
-Heap Sort:
-Time taken by Heap Sort for an ascending array with 500 values: 59 microseconds.
-Steps taken by Heap Sort for an ascending array with 500 values: 87895 steps.
-
-Time taken by HeapSort for a descending array with 500 values: 54 microseconds.
-Steps taken by Heap Sort for an descending array with 500 values: 164100 steps.
-
-Time taken by Heap Sort for a random array with 500 values: 61 microseconds.
-Steps taken by Heap Sort for an random array with 500 values: 246397 steps.
-
-Quick Sort:
-Time taken by Quick Sort for an ascending array with 500 values: 312 microseconds.
-Steps taken by Quick Sort for an ascending array with 500 values: 382734 steps.
-
-Time taken by Quick Sort for a descending array with 500 values: 411 microseconds.
-Steps taken by Quick Sort for a descending array with 500 values: 1015468 steps.
-
-Time taken by Quick Sort for a random array with 500 values: 38 microseconds.
-Steps taken by Quick Sort for a random array with 500 values: 1050062 steps.
-
-                Arrays deleted, end of main reached. Resetting...
-
-Bubble Sort:
-Time taken by Bubble Sort for an ascending array with 1000 values: 2 microseconds.
-Steps taken by Bubble Sort for an ascending array with 1000 values: 5 steps.
-
-Time taken by Bubble Sort for a descending array with 1000 values: 11652 microseconds.
-Steps taken by Bubble Sort for an descending array with 1000 values: 2500500 steps.
-
-Time taken by Bubble Sort for a random array with 1000 values: 7378 microseconds.
-Steps taken by Bubble Sort for an random array with 1000 values: 1217399 steps.
-
-Merge Sort:
-Time taken by Merge Sort for an ascending array with 1000 values: 485 microseconds.
-Steps taken by Merge Sort for an ascending array with 1000 values: 15105 steps.
-
-Time taken by Merge Sort for a descending array with 1000 values: 493 microseconds.
-Steps taken by Merge Sort for a descending array with 1000 values: 15100 steps.
-
-Time taken by Merge Sort for a random array with 1000 values: 542 microseconds.
-Steps taken by Merge Sort for a random array with 1000 values: 16075 steps.
-
-Heap Sort:
-Time taken by Heap Sort for an ascending array with 1000 values: 131 microseconds.
-Steps taken by Heap Sort for an ascending array with 1000 values: 197395 steps.
-
-Time taken by HeapSort for a descending array with 1000 values: 120 microseconds.
-Steps taken by Heap Sort for an descending array with 1000 values: 370063 steps.
-
-Time taken by Heap Sort for a random array with 1000 values: 178 microseconds.
-Steps taken by Heap Sort for an random array with 1000 values: 556035 steps.
-
-Quick Sort:
-Time taken by Quick Sort for an ascending array with 1000 values: 1184 microseconds.
-Steps taken by Quick Sort for an ascending array with 1000 values: 1515484 steps.
-
-Time taken by Quick Sort for a descending array with 1000 values: 1585 microseconds.
-Steps taken by Quick Sort for a descending array with 1000 values: 4030968 steps.
-
-Time taken by Quick Sort for a random array with 1000 values: 99 microseconds.
-Steps taken by Quick Sort for a random array with 1000 values: 4099391 steps.
-
-                Arrays deleted, end of main reached. Resetting...
-
-Bubble Sort:
-Time taken by Bubble Sort for an ascending array with 3000 values: 7 microseconds.
-Steps taken by Bubble Sort for an ascending array with 3000 values: 5 steps.
-
-Time taken by Bubble Sort for a descending array with 3000 values: 100605 microseconds.
-Steps taken by Bubble Sort for an descending array with 3000 values: 22501500 steps.
-
-Time taken by Bubble Sort for a random array with 3000 values: 64464 microseconds.
-Steps taken by Bubble Sort for an random array with 3000 values: 10741075 steps.
-
-Merge Sort:
-Time taken by Merge Sort for an ascending array with 3000 values: 1452 microseconds.
-Steps taken by Merge Sort for an ascending array with 3000 values: 45097 steps.
-
-Time taken by Merge Sort for a descending array with 3000 values: 1502 microseconds.
-Steps taken by Merge Sort for a descending array with 3000 values: 45091 steps.
-
-Time taken by Merge Sort for a random array with 3000 values: 1681 microseconds.
-Steps taken by Merge Sort for a random array with 3000 values: 48072 steps.
-
-Heap Sort:
-Time taken by Heap Sort for an ascending array with 3000 values: 456 microseconds.
-Steps taken by Heap Sort for an ascending array with 3000 values: 700075 steps.
-
-Time taken by HeapSort for a descending array with 3000 values: 446 microseconds.
-Steps taken by Heap Sort for an descending array with 3000 values: 1321429 steps.
-
-Time taken by Heap Sort for a random array with 3000 values: 477 microseconds.
-Steps taken by Heap Sort for an random array with 3000 values: 1983853 steps.
-
-Quick Sort:
-Time taken by Quick Sort for an ascending array with 3000 values: 10799 microseconds.
-Steps taken by Quick Sort for an ascending array with 3000 values: 13546484 steps.
-
-Time taken by Quick Sort for a descending array with 3000 values: 14283 microseconds.
-Steps taken by Quick Sort for a descending array with 3000 values: 36092968 steps.
-
-Time taken by Quick Sort for a random array with 3000 values: 264 microseconds.
-Steps taken by Quick Sort for a random array with 3000 values: 36317031 steps.
-
-                Arrays deleted, end of main reached. Resetting...
-
-Bubble Sort:
-Time taken by Bubble Sort for an ascending array with 5000 values: 11 microseconds.
-Steps taken by Bubble Sort for an ascending array with 5000 values: 5 steps.
-
-Time taken by Bubble Sort for a descending array with 5000 values: 279913 microseconds.
-Steps taken by Bubble Sort for an descending array with 5000 values: 62502500 steps.
-
-Time taken by Bubble Sort for a random array with 5000 values: 185222 microseconds.
-Steps taken by Bubble Sort for an random array with 5000 values: 30286629 steps.
-
-Merge Sort:
-Time taken by Merge Sort for an ascending array with 5000 values: 2686 microseconds.
-Steps taken by Merge Sort for an ascending array with 5000 values: 75125 steps.
-
-Time taken by Merge Sort for a descending array with 5000 values: 2699 microseconds.
-Steps taken by Merge Sort for a descending array with 5000 values: 75121 steps.
-
-Time taken by Merge Sort for a random array with 5000 values: 2833 microseconds.
-Steps taken by Merge Sort for a random array with 5000 values: 80096 steps.
-
-Heap Sort:
-Time taken by Heap Sort for an ascending array with 5000 values: 830 microseconds.
-Steps taken by Heap Sort for an ascending array with 5000 values: 1246529 steps.
-
-Time taken by HeapSort for a descending array with 5000 values: 756 microseconds.
-Steps taken by Heap Sort for an descending array with 5000 values: 2361879 steps.
-
-Time taken by Heap Sort for a random array with 5000 values: 866 microseconds.
-Steps taken by Heap Sort for an random array with 5000 values: 3545812 steps.
-
-Quick Sort:
-Time taken by Quick Sort for an ascending array with 5000 values: 28560 microseconds.
-Steps taken by Quick Sort for an ascending array with 5000 values: 37577484 steps.
-
-Time taken by Quick Sort for a descending array with 5000 values: 38581 microseconds.
-Steps taken by Quick Sort for a descending array with 5000 values: 100154968 steps.
-
-Time taken by Quick Sort for a random array with 5000 values: 498 microseconds.
-Steps taken by Quick Sort for a random array with 5000 values: 100578519 steps.
-
-                Arrays deleted, end of main reached. Resetting...
-
-Bubble Sort:
-Time taken by Bubble Sort for an ascending array with 10000 values: 23 microseconds.
-Steps taken by Bubble Sort for an ascending array with 10000 values: 5 steps.
-
-Time taken by Bubble Sort for a descending array with 10000 values: 1164300 microseconds.
-Steps taken by Bubble Sort for an descending array with 10000 values: 250005000 steps.
-
-Time taken by Bubble Sort for a random array with 10000 values: 748842 microseconds.
-Steps taken by Bubble Sort for an random array with 10000 values: 119454337 steps.
-
-Merge Sort:
-Time taken by Merge Sort for an ascending array with 10000 values: 5363 microseconds.
-Steps taken by Merge Sort for an ascending array with 10000 values: 150139 steps.
-
-Time taken by Merge Sort for a descending array with 10000 values: 5277 microseconds.
-Steps taken by Merge Sort for a descending array with 10000 values: 150135 steps.
-
-Time taken by Merge Sort for a random array with 10000 values: 5721 microseconds.
-Steps taken by Merge Sort for a random array with 10000 values: 160113 steps.
-
-Heap Sort:
-Time taken by Heap Sort for an ascending array with 10000 values: 1779 microseconds.
-Steps taken by Heap Sort for an ascending array with 10000 values: 2709315 steps.
-
-Time taken by HeapSort for a descending array with 10000 values: 1658 microseconds.
-Steps taken by Heap Sort for an descending array with 10000 values: 5154607 steps.
-
-Time taken by Heap Sort for a random array with 10000 values: 1894 microseconds.
-Steps taken by Heap Sort for an random array with 10000 values: 7731079 steps.
-
-Quick Sort:
-Time taken by Quick Sort for an ascending array with 10000 values: 112468 microseconds.
-Steps taken by Quick Sort for an ascending array with 10000 values: 150154984 steps.
-
-Time taken by Quick Sort for a descending array with 10000 values: 155068 microseconds.
-Steps taken by Quick Sort for a descending array with 10000 values: 400309968 steps.
-
-Time taken by Quick Sort for a random array with 10000 values: 995 microseconds.
-Steps taken by Quick Sort for a random array with 10000 values: 401185292 steps.
-
-                Arrays deleted, end of main reached. Resetting...
-
-Bubble Sort:
-Time taken by Bubble Sort for an ascending array with 50000 values: 117 microseconds.
-Steps taken by Bubble Sort for an ascending array with 50000 values: 5 steps.
-
-Time taken by Bubble Sort for a descending array with 50000 values: 28214377 microseconds.
-Steps taken by Bubble Sort for an descending array with 50000 values: 6250025000 steps.
-
-Time taken by Bubble Sort for a random array with 50000 values: 19528917 microseconds.
-Steps taken by Bubble Sort for an random array with 50000 values: 3374410886 steps.
-
-Merge Sort:
-Time taken by Merge Sort for an ascending array with 50000 values: 27378 microseconds.
-Steps taken by Merge Sort for an ascending array with 50000 values: 750189 steps.
-
-Time taken by Merge Sort for a descending array with 50000 values: 26809 microseconds.
-Steps taken by Merge Sort for a descending array with 50000 values: 750184 steps.
-
-Time taken by Merge Sort for a random array with 50000 values: 28691 microseconds.
-Steps taken by Merge Sort for a random array with 50000 values: 799203 steps.
-
-Heap Sort:
-Time taken by Heap Sort for an ascending array with 50000 values: 10537 microseconds.
-Steps taken by Heap Sort for an ascending array with 50000 values: 16027219 steps.
-
-Time taken by HeapSort for a descending array with 50000 values: 10028 microseconds.
-Steps taken by Heap Sort for an descending array with 50000 values: 30738729 steps.
-
-Time taken by Heap Sort for a random array with 50000 values: 11358 microseconds.
-Steps taken by Heap Sort for an random array with 50000 values: 46019707 steps.
-
-Quick Sort:
-Time taken by Quick Sort for an ascending array with 50000 values: 2807079 microseconds.
-Steps taken by Quick Sort for an ascending array with 50000 values: 3750774984 steps.
-
-Time taken by Quick Sort for a descending array with 50000 values: 3865914 microseconds.
-Steps taken by Quick Sort for a descending array with 50000 values: 10001549968 steps.
-
-Time taken by Quick Sort for a random array with 50000 values: 5766 microseconds.
-Steps taken by Quick Sort for a random array with 50000 values: 10006704964 steps.
-
-                Arrays deleted, end of main reached. Resetting...
-
-Program successfully ran.
+ - See spreadsheet for accurate results.
 */
