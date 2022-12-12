@@ -92,7 +92,7 @@ int main() {
             cout << '\n';
             initialize(randomArray, ascArray, desArray);
 
-            int heapSteps = 0;
+            long long int heapSteps = 0;
 
             cout << "Heap Sort: " << endl;
 
@@ -120,11 +120,10 @@ int main() {
             cout << "\nTime taken by Heap Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Heap Sort for an random array with " << n << " values: " << heapSteps << " steps. " << endl;
 
-
             cout << '\n';
             initialize(randomArray, ascArray, desArray);
 
-            int quickSteps = 0;
+            long long int quickSteps = 0;
 
             cout << "Quick Sort: " << endl;
 

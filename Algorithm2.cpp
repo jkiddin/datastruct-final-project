@@ -4,7 +4,7 @@ using namespace std;
 
 // Andrew's Part
 
-void BuildHeap(int Array[], int size, int& steps) {
+void BuildHeap(int Array[], int size, long long int& steps) {
 
     steps += 4; // initializing i (3 steps) and false comparison i >= 0
 
@@ -15,7 +15,7 @@ void BuildHeap(int Array[], int size, int& steps) {
         Heapify(Array, i, size, steps);
     }
 }
-void Heapify(int Array[], int i, int size, int& steps) {
+void Heapify(int Array[], int i, int size, long long int& steps) {
     int largest = i;
     int temp;
 
@@ -49,7 +49,7 @@ void Heapify(int Array[], int i, int size, int& steps) {
 
 }
 
-void HeapSort(int Array[], int size, int& steps) {
+void HeapSort(int Array[], int size, long long int& steps) {
 
     int temp;
 
@@ -71,7 +71,7 @@ void HeapSort(int Array[], int size, int& steps) {
 
 
 
-int LomutoPartition(int Array[], int begin, int end, int& steps) {
+int LomutoPartition(int Array[], int begin, int end, long long int& steps) {
 
     steps += 4; // intializations of three variables
 
@@ -102,13 +102,13 @@ int LomutoPartition(int Array[], int begin, int end, int& steps) {
 
 }
 
-void QuickSort(int Array[], int begin, int end, int& steps) {
+void QuickSort(int Array[], int begin, int end, long long int& steps) {
 
     steps += 1; // comparison
 
     if (begin < end) {
         steps += 4; // 3 function calls and assignment
-        int	q = LomutoPartition(Array, begin, end, steps);
+        int q = LomutoPartition(Array, begin, end, steps);
 
         QuickSort(Array, begin, q - 1, steps);
         QuickSort(Array, q + 1, end, steps);
