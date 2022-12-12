@@ -42,6 +42,8 @@ int main() {
 
             cout << "Time taken by Insertion Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Insertion Sort for an ascending array with " << n << " values: " << InsertionSteps << " steps. " << endl;
+            
+            InsertionSteps = 0;
 
             start = high_resolution_clock::now();
             InsertionSort(desArray, n, InsertionSteps);
@@ -50,6 +52,8 @@ int main() {
 
             cout << "\nTime taken by Insertion Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Insertion Sort for an descending array with " << n << " values: " << InsertionSteps << " steps. " << endl;
+            
+            InsertionSteps = 0;
 
             start = high_resolution_clock::now();
             InsertionSort(randomArray, n, InsertionSteps);
@@ -74,6 +78,8 @@ int main() {
 
             cout << "Time taken by Selection Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Selection Sort for an ascending array with " << n << " values: " << SelectionSteps << " steps. " << endl;
+            
+            SelectionSteps = 0;
 
             start = high_resolution_clock::now();
             SelectionSort(desArray, n, SelectionSteps);
@@ -82,6 +88,8 @@ int main() {
 
             cout << "\nTime taken by Selection Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Selection Sort for a descending array with " << n << " values: " << SelectionSteps << " steps. " << endl;
+            
+            SelectionSteps = 0;
 
             start = high_resolution_clock::now();
             SelectionSort(randomArray, n, SelectionSteps);
@@ -212,6 +220,8 @@ int main() {
 
             cout << "Time taken by Quick Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Quick Sort for an ascending array with " << n << " values: " << quickSteps << " steps. " << endl;
+            
+            quickSteps = 0;
 
             start = high_resolution_clock::now();
             QuickSort(desArray, 0, n - 1, quickSteps);
@@ -221,6 +231,8 @@ int main() {
             cout << "\nTime taken by Quick Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Quick Sort for a descending array with " << n << " values: " << quickSteps << " steps. " << endl;
 
+            quickSteps = 0;
+            
             start = high_resolution_clock::now();
             QuickSort(randomArray, 0, n - 1, quickSteps);
             stop = high_resolution_clock::now();
@@ -251,7 +263,7 @@ int main() {
         long long int totalSteps;
         long long int totalDuration;
 
-        while (counter != 8) {
+        while (counter != 4) {
             nSetup();
             filename = to_string(n) + ".txt";
             int* randomArray = new int[n];
