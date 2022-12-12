@@ -21,7 +21,6 @@ void printArrays(int asc[], int des[], int ran[], int size) { //only used for te
 }
 
 void bubbleSort(int arr[], int n, long long int& c) { //c coincides with steps (c for counter)
-    c = 0;
     int i, j;
     bool swapped;
     c = c + 3;
@@ -107,8 +106,6 @@ void mergeSort(int arr[], int begin, int end, long long int& pass) { //pass sign
     if (begin >= end) {
         return;
     }
-
-    pass = 0;
 
     int mid = begin + (end - begin) / 2;
     mergeSort(arr, begin, mid, pass);
