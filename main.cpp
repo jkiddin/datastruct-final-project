@@ -18,7 +18,7 @@ int main() {
     cout << "Task 1 or 2: ";
     cin >> choice;
     if (choice == 1) {
-        while (counter != 8) { //replace with 8 later.
+        while (counter != 4) { //replace with 8 later.
             nSetup();
             int* randomArray = new int[n];
             int* ascArray = new int[n];
@@ -238,9 +238,9 @@ Implement insertion sort, selection sort, bubble sort, merge sort, quicksort and
 Input (not enter by the user) include:
 1)    the number of integers to be sorted, n.
 2)    generating three instances as follows:
-a.    sorted input data set: 1, 2, 3, … n;
-b.    reversely sorted input data set: n, n-1, …, 3, 2,1;
-c.    random permutation of 1, 2, …, n (random permutation means that each number of 1, 2, …, n appears exactly once in the input data set but with random position. For example, if n=5, then you may have the random permutation 4, 1, 3, 5, 2).
+a.    sorted input data set: 1, 2, 3, Â… n;
+b.    reversely sorted input data set: n, n-1, Â…, 3, 2,1;
+c.    random permutation of 1, 2, Â…, n (random permutation means that each number of 1, 2, Â…, n appears exactly once in the input data set but with random position. For example, if n=5, then you may have the random permutation 4, 1, 3, 5, 2).
 Test your program and do the experiments as follows:
 Run the above three generated input data sets for each n (number of integers) = 100, 300, 500, 1000, 3000, 5000, 10000, 50000
 Note:
