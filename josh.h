@@ -1,12 +1,12 @@
 #pragma once
+//josh's part + necessary dependencies. 
 
 #include <iostream>
-#include <time.h>
 #include <chrono>
 #include <vector>
 #include <fstream>
 
-void printArrays(int asc[], int des[], int ran[], int size);
+void printArrays(int asc[], int des[], int ran[], int size); //used for testing sorting algo's.
 
 void bubbleSort(int arr[], int n, long long int& c);
 

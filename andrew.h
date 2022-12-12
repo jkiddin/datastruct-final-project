@@ -1,10 +1,5 @@
 #pragma once
-
-#include <iostream>
-#include <time.h>
-#include <chrono>
-#include <vector>
-
+#pragma once
 // Andrew's Part
 
 void Heapify(int Array[], int i, int size, long long int& steps);
