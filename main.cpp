@@ -11,6 +11,7 @@ int n;
 int counter = 0; //used to increment to the correct n value.
 
 //Works in XCode!
+//https://pastebin.com/svweXHTg
 
 int main() {
     int choice;
@@ -181,7 +182,7 @@ int main() {
         long long int totalSteps;
         long long int totalDuration;
 
-        while (counter != 8) { 
+        while (counter != 8) {
             nSetup();
             filename = to_string(n) + ".txt";
             int* randomArray = new int[n];
