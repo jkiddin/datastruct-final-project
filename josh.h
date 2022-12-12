@@ -5,6 +5,7 @@
 #include <chrono>
 #include <vector>
 #include <fstream>
+#include <string>
 
 void printArrays(int asc[], int des[], int ran[], int size); //used for testing sorting algo's.
 

@@ -166,7 +166,91 @@ int main() {
     }
     else if (choice == 2) {
         //part 2
+        ifstream inData;
+        string filename = "";
+        string algorithm;
+        long long int totalSteps;
+        long long int totalDuration;
 
+        while (counter != 8) { 
+            nSetup();
+            filename = to_string(n) + ".txt";
+            int* randomArray = new int[n];
+
+            for (int i = 0; i < 4; i++) { // change to 6 later and edit switch - represents algos
+                try {
+                    inData.open(filename);
+                }
+                catch (exception e) {
+                    cerr << "Unable to open file." << endl;
+                    return 1;
+                }
+
+                totalSteps = 0;
+                totalDuration = 0;
+
+                for (int j = 0; j < 50; j++) {
+                    for (int k = 0; k < n; k++) {
+                        inData >> randomArray[k];
+                    }
+
+                    long long int steps = 0;
+
+                    auto start = high_resolution_clock::now();
+                    switch (i) {
+                    case 0:
+                        bubbleSort(randomArray, n, steps);
+                        break;
+                    case 1:
+                        mergeSort(randomArray, 0, n - 1, steps);
+                        break;
+                    case 2:
+                        HeapSort(randomArray, n, steps);
+                        break;
+                    case 3:
+                        QuickSort(randomArray, 0, n - 1, steps);
+                        break;
+
+                    }
+                    auto stop = high_resolution_clock::now();
+                    auto duration = duration_cast<microseconds>(stop - start);
+
+
+                    totalDuration += duration.count();
+                    totalSteps += steps;
+
+                }
+                inData.close();
+
+                switch (i) {
+                case 0:
+                    algorithm = "Bubble Sort";
+                    break;
+                case 1:
+                    algorithm = "Merge Sort";
+                    break;
+                case 2:
+                    algorithm = "Heap Sort";
+                    break;
+                case 3:
+                    algorithm = "Quick Sort";
+                    break;
+
+                }
+
+                cout << algorithm << ": " << endl;
+                cout << "Total time taken by " << algorithm << " for " << n << " values: " << totalDuration << " microseconds. " << endl;
+                cout << "Total steps taken by " << algorithm << " for " << n << " values: " << totalSteps << " steps. " << endl;
+
+                cout << "Average time taken by " << algorithm << " for " << n << " values: " << totalDuration / 50 << " microseconds. " << endl;
+                cout << "Average steps taken by " << algorithm << " for " << n << " values: " << totalSteps / 50 << " steps. " << endl;
+
+                cout << endl << endl;
+            }
+            counter++;
+        }
+        cout << "Program successfully ran." << endl;
+        return 0;
     }
     else {
         cerr << "Not a valid response. Exiting..." << endl;
