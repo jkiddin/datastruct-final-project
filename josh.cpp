@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void printArrays(int asc[], int des[], int ran[], int size) {
+void printArrays(int asc[], int des[], int ran[], int size) { //only used for testing the sorting algo's.
     cout << "\nThe ascending array currently holds: " << endl;
     for (int i = 0; i < size; i++) {
         cout << " " << asc[i];
@@ -20,7 +20,7 @@ void printArrays(int asc[], int des[], int ran[], int size) {
     cout << '\n';
 }
 
-void bubbleSort(int arr[], int n, long long int& c) {
+void bubbleSort(int arr[], int n, long long int& c) { //c coincides with steps (c for counter)
     c = 0;
     int i, j;
     bool swapped;
@@ -47,7 +47,7 @@ Time Complexity: O(N^2)
 Auxiliary Space: O(1)
 */
 
-void merge(int arr[], int left, int mid, int right, long long int& c) {
+void merge(int arr[], int left, int mid, int right, long long int& c) { //c coincides with steps (c for counter)
     int sub1 = mid - left + 1;
     int sub2 = right - mid;
 
@@ -103,7 +103,7 @@ void merge(int arr[], int left, int mid, int right, long long int& c) {
     c = c + 2;
 }
 
-void mergeSort(int arr[], int begin, int end, long long int& pass) {
+void mergeSort(int arr[], int begin, int end, long long int& pass) { //pass signifies steps, "passing" through the function calls.
     if (begin >= end) {
         return;
     }
@@ -118,3 +118,7 @@ void mergeSort(int arr[], int begin, int end, long long int& pass) {
     return;
 }
  
+/*
+Time Complexity: O(n log(n))
+Auxiliary Space: O(n)
+*/
