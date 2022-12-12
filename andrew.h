@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 // Andrew's Part
 
 void Heapify(int Array[], int i, int size, long long int& steps);
