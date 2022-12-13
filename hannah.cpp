@@ -1,7 +1,6 @@
 #include "hannah.h"
 
-void InsertionSort(int A[], int size, long long int &steps)
-{
+void InsertionSort(int A[], int size, long long int &steps) {
     steps += 2;
 
     for (int i = 1; i <= size - 1; i++)
@@ -19,8 +18,7 @@ void InsertionSort(int A[], int size, long long int &steps)
     }
 }
 
-void SelectionSort(int A[], int size, long long int &steps)
-{
+void SelectionSort(int A[], int size, long long int &steps) {
     steps += 2;
     for (int i = 1; i <= size - 1; i++)
     {

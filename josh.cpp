@@ -23,22 +23,25 @@ void printArrays(int asc[], int des[], int ran[], int size) { //only used for te
 void bubbleSort(int arr[], int n, long long int& c) { //c coincides with steps (c for counter)
     int i, j;
     bool swapped;
-    c = c + 3;
+    c += 3; 
     for (i = 0; i < n - 1; i++) {
         swapped = false;
-        c = c + 2;
+        c += 3;
         for (j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 swap(arr[j], arr[j + 1]);
                 swapped = true;
-                c = c + 5;
+                c += 4; //for loop comparison + increment j = 2 and two statements in if statement = 4
             }
+            c++; //if statement
         }
+        c++; //initialization of j in for loop
         if (swapped == false) {
             break;
         }
-        c++;
+        c++; //if statement
     }
+    c++; //initializaiton of i in for loop
 }
 
 /*
@@ -53,53 +56,55 @@ void merge(int arr[], int left, int mid, int right, long long int& c) { //c coin
     int* leftArray = new int[sub1];
     int* rightArray = new int[sub2];
 
-    c = c + 4;
+    c += 4;
 
     for (int i = 0; i < sub1; i++) {
         leftArray[i] = arr[left + i];
-        c = c + 3;
+        c += 3; //comparison, increment, statement
     }
+    c++; //i initialization
     for (int j = 0; j < sub2; j++) {
         rightArray[j] = arr[mid + 1 + j];
-        c = c + 3;
+        c += 3; //comparison, increment, statement
     }
+    c++; //j initialization
 
     int indexS1 = 0;
     int indexS2 = 0;
     int indexArr = left;
 
-    c = c + 3;
+    c += 3; //3 statements
 
     while (indexS1 < sub1 && indexS2 < sub2) {
         if (leftArray[indexS1] <= rightArray[indexS2]) {
             arr[indexArr] = leftArray[indexS1];
             indexS1++;
-            c = c + 3;
+            c += 2;
         }
         else {
             arr[indexArr] = rightArray[indexS2];
             indexS2++;
-            c = c + 3;
+            c += 2;
         }
         indexArr++;
-        c = c + 2;
+        c += 4; //while containing && = 2; if statement = 1 + incrementing index = 1;
     }
 
     while (indexS1 < sub1) {
         arr[indexArr] = leftArray[indexS1];
         indexS1++;
         indexArr++;
-        c = c + 4;
+        c += 4;
     }
     while (indexS2 < sub2) {
         arr[indexArr] = rightArray[indexS2];
         indexS2++;
         indexArr++;
-        c = c + 4;
+        c += 4;
     }
     delete[] leftArray;
     delete[] rightArray;
-    c = c + 2;
+    c += 2;
 }
 
 void mergeSort(int arr[], int begin, int end, long long int& pass) { //pass signifies steps, "passing" through the function calls.
@@ -108,10 +113,10 @@ void mergeSort(int arr[], int begin, int end, long long int& pass) { //pass sign
     }
 
     int mid = begin + (end - begin) / 2;
+    pass += 5; //if statement, mid initialization, three function calls.
     mergeSort(arr, begin, mid, pass);
     mergeSort(arr, mid + 1, end, pass);
     merge(arr, begin, mid, end, pass);
-    pass = pass + 5;
     return;
 }
  
