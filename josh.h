@@ -1,6 +1,5 @@
 #pragma once
 //josh's part + necessary dependencies. 
-
 #include <iostream>
 #include <chrono>
 #include <vector>
