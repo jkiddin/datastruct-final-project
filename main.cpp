@@ -25,7 +25,84 @@ int main() {
 
             initialize(randomArray, ascArray, desArray); //sets the arrays to their correct values.
 
+<<<<<<< Updated upstream
             long long int bubbleSteps; //step counter for Bubble Sort.
+=======
+            long long int InsertionSteps = 0;
+
+            cout << "Insertion Sort: " << endl;
+
+            auto start = high_resolution_clock::now();
+            InsertionSort(ascArray, n, 0, InsertionSteps);
+            auto stop = high_resolution_clock::now();
+            auto duration = duration_cast<microseconds>(stop - start);
+
+            cout << "Time taken by Insertion Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+            cout << "Steps taken by Insertion Sort for an ascending array with " << n << " values: " << InsertionSteps << " steps. " << endl;
+            
+            InsertionSteps = 0; //resetting insertion steps after ascending array
+
+            start = high_resolution_clock::now();
+            InsertionSort(desArray, n, 0, InsertionSteps);
+            stop = high_resolution_clock::now();
+            duration = duration_cast<microseconds>(stop - start);
+
+            cout << "\nTime taken by Insertion Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+            cout << "Steps taken by Insertion Sort for an descending array with " << n << " values: " << InsertionSteps << " steps. " << endl;
+            
+            InsertionSteps = 0; //resetting insertion steps after descending array
+
+            start = high_resolution_clock::now();
+            InsertionSort(randomArray, n, 0, InsertionSteps);
+            stop = high_resolution_clock::now();
+            duration = duration_cast<microseconds>(stop - start);
+
+            cout << "\nTime taken by Insertion Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+            cout << "Steps taken by Insertion Sort for an random array with " << n << " values: " << InsertionSteps << " steps. " << endl;
+
+            cout << '\n';
+            initialize(randomArray, ascArray, desArray);
+
+            //Selection Sort
+            long long int SelectionSteps = 0;
+
+            cout << "Selection Sort: " << endl;
+
+            start = high_resolution_clock::now();
+            SelectionSort(ascArray, n, SelectionSteps);
+            stop = high_resolution_clock::now();
+            duration = duration_cast<microseconds>(stop - start);
+
+            cout << "Time taken by Selection Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+            cout << "Steps taken by Selection Sort for an ascending array with " << n << " values: " << SelectionSteps << " steps. " << endl;
+            
+            SelectionSteps = 0; //resetting selection steps after ascending array
+
+            start = high_resolution_clock::now();
+            SelectionSort(desArray, n, SelectionSteps);
+            stop = high_resolution_clock::now();
+            duration = duration_cast<microseconds>(stop - start);
+
+            cout << "\nTime taken by Selection Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+            cout << "Steps taken by Selection Sort for a descending array with " << n << " values: " << SelectionSteps << " steps. " << endl;
+            
+            SelectionSteps = 0; //resetting selection steps after descending array
+
+            start = high_resolution_clock::now();
+            SelectionSort(randomArray, n, SelectionSteps);
+            stop = high_resolution_clock::now();
+            duration = duration_cast<microseconds>(stop - start);
+
+            cout << "\nTime taken by Selection Sort for a random array with " << n << " values: " << duration.count() << " microseconds. " << endl;
+            cout << "Steps taken by Selection Sort for a random array with " << n << " values: " << SelectionSteps << " steps. " << endl;
+            //end Hannah's
+            
+            //start josh
+            cout << '\n';
+            initialize(randomArray, ascArray, desArray);
+            
+            long long int bubbleSteps = 0; //step counter for Bubble Sort.
+>>>>>>> Stashed changes
 
             cout << "Bubble Sort: " << endl;
 
@@ -56,28 +133,45 @@ int main() {
             cout << '\n';
             initialize(randomArray, ascArray, desArray);
 
+<<<<<<< Updated upstream
             long long int mergeSteps; //step counter for Merge Sort.
+=======
+            long long int mergeSteps = 0; //step counter for Merge Sort.
+            int insertSortNumber = 0; //used for optimization.
+>>>>>>> Stashed changes
 
             cout << "Merge Sort: " << endl;
 
             start = high_resolution_clock::now();
-            mergeSort(ascArray, 0, n - 1, mergeSteps);
+            mergeSort(ascArray, 0, n - 1, mergeSteps, insertSortNumber);
             stop = high_resolution_clock::now();
             duration = duration_cast<microseconds>(stop - start);
 
             cout << "Time taken by Merge Sort for an ascending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Merge Sort for an ascending array with " << n << " values: " << mergeSteps << " steps. " << endl;
 
+<<<<<<< Updated upstream
+=======
+            mergeSteps = 0; //resetting merge steps after ascending array
+            insertSortNumber = 0;
+
+>>>>>>> Stashed changes
             start = high_resolution_clock::now();
-            mergeSort(desArray, 0, n - 1, mergeSteps);
+            mergeSort(desArray, 0, n - 1, mergeSteps, insertSortNumber);
             stop = high_resolution_clock::now();
             duration = duration_cast<microseconds>(stop - start);
 
             cout << "\nTime taken by Merge Sort for a descending array with " << n << " values: " << duration.count() << " microseconds. " << endl;
             cout << "Steps taken by Merge Sort for a descending array with " << n << " values: " << mergeSteps << " steps. " << endl;
 
+<<<<<<< Updated upstream
+=======
+            mergeSteps = 0; //resetting merge steps after descending array
+            insertSortNumber = 0;
+
+>>>>>>> Stashed changes
             start = high_resolution_clock::now();
-            mergeSort(randomArray, 0, n - 1, mergeSteps);
+            mergeSort(randomArray, 0, n - 1, mergeSteps, insertSortNumber);
             stop = high_resolution_clock::now();
             duration = duration_cast<microseconds>(stop - start);
 
@@ -166,7 +260,109 @@ int main() {
     }
     else if (choice == 2) {
         //part 2
+<<<<<<< Updated upstream
 
+=======
+        ifstream inData;
+        string filename = "";
+        string algorithm;
+        long long int totalSteps;
+        long long int totalDuration;
+        int insertSortNumber;
+
+        while (counter != 8) { //set to 8.
+            nSetup();
+            filename = to_string(n) + ".txt";
+            int* randomArray = new int[n];
+
+            insertSortNumber = 0;
+
+            for (int i = 0; i < 10; i++) { // change to 6 later and edit switch - represents algos
+                insertSortNumber += 5;
+                inData.open(filename);
+                if (!inData.is_open()) {
+                    cerr << "File " << filename << " is not open. " << endl;
+                    return 1;
+                }
+
+                totalSteps = 0;
+                totalDuration = 0;
+
+                for (int j = 0; j < 50; j++) {
+                    for (int k = 0; k < n; k++) {
+                        inData >> randomArray[k];
+                    }
+
+                    long long int steps = 0;
+
+                    auto start = high_resolution_clock::now();
+                    switch (i) {
+                    case 0:
+                        InsertionSort(randomArray, n, 0, steps);
+                        break;
+                    case 1:
+                        SelectionSort(randomArray, n, steps);
+                        break;
+                    case 2:
+                        bubbleSort(randomArray, n, steps);
+                        break;
+                    case 3:
+                        mergeSort(randomArray, 0, n - 1, steps, insertSortNumber);
+                        break;
+                    case 4:
+                        HeapSort(randomArray, n, steps);
+                        break;
+                    case 5:
+                        QuickSort(randomArray, 0, n - 1, steps);
+                        break;
+                    }
+                    auto stop = high_resolution_clock::now();
+                    auto duration = duration_cast<microseconds>(stop - start);
+
+                    totalDuration += duration.count();
+                    totalSteps += steps;
+
+                }
+                inData.close();
+
+                switch (i) {
+                case 0:
+                    algorithm = "Insertion Sort";
+                    break;
+                case 1:
+                    algorithm = "Selection Sort";
+                    break;
+                case 2:
+                    algorithm = "Bubble Sort";
+                    break;
+                case 3:
+                    algorithm = "Merge Sort";
+                    break;
+                case 4:
+                    algorithm = "Heap Sort";
+                    break;
+                case 5:
+                    algorithm = "Quick Sort";
+                    break;
+                }
+                cout << algorithm << ": " << endl;
+                if (i == 3) {
+                    cout << "With Insert Sort for " << insertSortNumber << " numbers:" << endl;
+                }
+                cout << "Total time taken by " << algorithm << " for " << n << " values: " << totalDuration << " microseconds. " << endl;
+                cout << "Total steps taken by " << algorithm << " for " << n << " values: " << totalSteps << " steps. " << endl;
+
+                cout << "Average time taken by " << algorithm << " for " << n << " values: " << totalDuration / 50 << " microseconds. " << endl;
+                cout << "Average steps taken by " << algorithm << " for " << n << " values: " << totalSteps / 50 << " steps. " << endl;
+
+                cout << endl << endl;
+            }
+            delete[] randomArray;
+            counter++;
+        }
+        cout << "Program successfully ran." << endl;
+        return 0;
+>>>>>>> Stashed changes
     }
     else {
         cerr << "Not a valid response. Exiting..." << endl;
