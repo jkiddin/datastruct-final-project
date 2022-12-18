@@ -1,4 +1,5 @@
 #include "josh.h"
+#include "hannah.h"
 
 using namespace std;
 
@@ -107,15 +108,16 @@ void merge(int arr[], int left, int mid, int right, long long int& c) { //c coin
     c += 2;
 }
 
-void mergeSort(int arr[], int begin, int end, long long int& pass) { //pass signifies steps, "passing" through the function calls.
-    if (begin >= end) {
+void mergeSort(int arr[], int begin, int end, long long int& pass, int insertSortNumber) { //pass signifies steps, "passing" through the function calls.
+    if (end - begin + 1 <= insertSortNumber) {
+        InsertionSort(arr, end + 1, begin, pass);
         return;
     }
 
     int mid = begin + (end - begin) / 2;
     pass += 5; //if statement, mid initialization, three function calls.
-    mergeSort(arr, begin, mid, pass);
-    mergeSort(arr, mid + 1, end, pass);
+    mergeSort(arr, begin, mid, pass, insertSortNumber);
+    mergeSort(arr, mid + 1, end, pass, insertSortNumber);
     merge(arr, begin, mid, end, pass);
     return;
 }

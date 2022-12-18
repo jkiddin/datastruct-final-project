@@ -1,14 +1,14 @@
 #include "hannah.h"
 
-void InsertionSort(int A[], int size, long long int &steps) {
+void InsertionSort(int A[], int size, int begin, long long int& steps) {
     steps += 2;
 
-    for (int i = 1; i <= size - 1; i++)
+    for (int i = begin + 1; i <= size - 1; i++)
     {
         steps += 11;
         int temp = A[i];
         int j = i - 1;
-        for (j = i - 1; j >= 0 && temp < A[j]; j--)
+        for (j = i - 1; j >= begin && temp < A[j]; j--)
         {
             steps += 5;
             A[j + 1] = A[j];
@@ -18,7 +18,7 @@ void InsertionSort(int A[], int size, long long int &steps) {
     }
 }
 
-void SelectionSort(int A[], int size, long long int &steps) {
+void SelectionSort(int A[], int size, long long int& steps) {
     steps += 2;
     for (int i = 1; i <= size - 1; i++)
     {

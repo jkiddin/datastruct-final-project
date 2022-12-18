@@ -263,13 +263,17 @@ int main() {
         string algorithm;
         long long int totalSteps;
         long long int totalDuration;
+        int insertSortNumber;
 
         while (counter != 8) { //set to 8.
             nSetup();
             filename = to_string(n) + ".txt";
             int* randomArray = new int[n];
 
-            for (int i = 0; i < 6; i++) { // change to 6 later and edit switch - represents algos
+            insertSortNumber = 0;
+
+            for (int i = 0; i < 10; i++) { // change to 6 later and edit switch - represents algos
+                insertSortNumber += 5;
                 inData.open(filename);
                 if (!inData.is_open()) {
                     cerr << "File " << filename << " is not open. " << endl;
@@ -288,7 +292,7 @@ int main() {
                     auto start = high_resolution_clock::now();
                     switch (i) {
                     case 0:
-                        InsertionSort(randomArray, n, steps);
+                        InsertionSort(randomArray, n, 0, steps); //assumed zero.
                         break;
                     case 1:
                         SelectionSort(randomArray, n, steps);
@@ -297,7 +301,7 @@ int main() {
                         bubbleSort(randomArray, n, steps);
                         break;
                     case 3:
-                        mergeSort(randomArray, 0, n - 1, steps);
+                        mergeSort(randomArray, 0, n - 1, steps, insertSortNumber);
                         break;
                     case 4:
                         HeapSort(randomArray, n, steps);
@@ -336,6 +340,9 @@ int main() {
                     break;
                 }
                 cout << algorithm << ": " << endl;
+                if (i == 3) {
+                    cout << "With Insert Sort for " << insertSortNumber << " numbers:" << endl;
+                }
                 cout << "Total time taken by " << algorithm << " for " << n << " values: " << totalDuration << " microseconds. " << endl;
                 cout << "Total steps taken by " << algorithm << " for " << n << " values: " << totalSteps << " steps. " << endl;
 
